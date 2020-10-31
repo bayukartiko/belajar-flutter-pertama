@@ -1,6 +1,14 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'src/app.dart';
+
+// tugas form register 24 oct 2020
+void main() {
+  runApp(App());
+}
+
+
 
 // void main() {
 //   runApp(MyApp());
@@ -117,113 +125,3 @@ import 'package:flutter/material.dart';
 //     );
 //   }
 // }
-
-// tugas routing pindah halaman 24 oct 2020
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    title: 'Routing navigasi',
-    initialRoute: '/',
-    routes: {
-      '/': (context) => HalamanPertama(),
-      HalamanKedua.routeName: (context) => HalamanKedua(),
-      HalamanKetiga.routeName: (context) => HalamanKetiga(),
-    },
-  ));
-}
-
-class HalamanPertama extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Halaman Pertama'),
-      ),
-      body: Center(
-        child: ListView(
-          children: <Widget>[
-            Text(
-              'Halo bayu kartiko ! {halaman pertama}',
-            ),
-            RaisedButton(
-              child: Text('Pindah ke Halaman kedua'),
-              onPressed: () {
-                Navigator.pushNamed(context, HalamanKedua.routeName);
-              },
-            ),
-            RaisedButton(
-              child: Text('Pindah ke Halaman ketiga'),
-              onPressed: () {
-                Navigator.pushNamed(context, HalamanKetiga.routeName);
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class HalamanKedua extends StatelessWidget {
-  static const String routeName = "/halamanKedua";
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Halaman Kedua'),
-        ),
-        body: Center(
-          child: ListView(
-            children: <Widget>[
-              Text(
-                'Halo bayu kartiko {halaman kedua}!',
-              ),
-              RaisedButton(
-                child: Text('Kembali'),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              RaisedButton(
-                child: Text('Pindah ke Halaman ketiga'),
-                onPressed: () {
-                  Navigator.pushNamed(context, HalamanKetiga.routeName);
-                },
-              ),
-            ],
-          ),
-        ));
-  }
-}
-
-class HalamanKetiga extends StatelessWidget {
-  static const String routeName = "/halamanKetiga";
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Halaman Ketiga'),
-        ),
-        body: Center(
-          child: ListView(
-            children: <Widget>[
-              Text(
-                'Halo bayu kartiko {halaman ketiga}!',
-              ),
-              RaisedButton(
-                child: Text('Kembali'),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              RaisedButton(
-                child: Text('Pindah ke Halaman kedua'),
-                onPressed: () {
-                  Navigator.pushNamed(context, HalamanKedua.routeName);
-                },
-              ),
-            ],
-          ),
-        ));
-  }
-}
